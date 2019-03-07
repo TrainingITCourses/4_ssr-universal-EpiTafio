@@ -1,0 +1,20 @@
+<section id="selector">
+  <select #filtro
+          (change)="cambiaFiltro(filtro.value)"
+          name="filtro">
+    <option value="0" style="display: none">Elija un filtro de búsqueda</option>
+    <option value="1">Nombre</option>
+    <option value="2">Estado</option>
+    <option value="2">Agencia</option>
+    <option value="4">Tipo</option>
+  </select>
+</section>
+<p></p>
+<section>
+  <label>Buscador: </label>
+  <input #searchText
+        name="search"
+         type="text"
+         placeholder="Introduce texto para buscar"
+         (keyup)="hayTexto(searchText.value)">
+</section>
