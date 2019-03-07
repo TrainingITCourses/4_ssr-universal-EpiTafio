@@ -14,7 +14,6 @@ export class ContenedorContainerComponent implements OnInit {
   public resultado  = { contenido: 0 };
   public filtro = { valor: 0 };
 
-
   constructor() { }
 
   ngOnInit() {
@@ -32,19 +31,18 @@ export class ContenedorContainerComponent implements OnInit {
   filtra = (searchText: any) => {
    this.resetear();
    const search = searchText.toLowerCase();
-        if ( 1 == this.filtro.valor ) {
-          this.porNombre(search);
-        } else if ( this.filtro.valor == 2) {
-          this.porEstados(search);
-        } else if ( this.filtro.valor == 3) {
-          this.porAgencias(search);
-        }  else if ( this.filtro.valor == 4 ) {
-          this.porTipos(search);
-        } else {
-          console.log('"Invalid choice"');
-          this.lanzamientos.push('¡¡¡ ELIJA CRITERIO !!! ');
-        }
-
+    if ( 1 == this.filtro.valor ) {
+        this.porNombre(search);
+      } else if ( this.filtro.valor == 2) {
+         this.porEstados(search);
+      } else if ( this.filtro.valor == 3) {
+         this.porAgencias(search);
+      } else if ( this.filtro.valor == 4 ) {
+         this.porTipos(search);
+      } else {
+        console.log('ELIJA CRITERIO');
+        this.lanzamientos.push('¡¡¡ ELIJA CRITERIO !!! ');
+   }
   }
 
   porNombre = (search: any) => {
@@ -73,7 +71,7 @@ export class ContenedorContainerComponent implements OnInit {
     }
   }
 
-  porAgencias (search: any) {
+  porAgencias = (search: any) => {
     if ( search.length !== 0 ) {
       agenciasJS.agencies.forEach( (agen) => {
         if ( agen.name.toLowerCase().includes(search) ) {
@@ -94,7 +92,7 @@ export class ContenedorContainerComponent implements OnInit {
     }
   }
 
-  porTipos (search: any) {
+  porTipos = (search: any) => {
     if ( search.length !== 0 ) {
       tiposJS.types.forEach( (tipo) => {
         if ( tipo.name.toLowerCase().includes(search) ) {
@@ -111,7 +109,7 @@ export class ContenedorContainerComponent implements OnInit {
     }
   }
 
-  resetear() {
+  resetear = () => {
     this.lanzamientos = [];
     this.resultado.contenido = 0;
   }
