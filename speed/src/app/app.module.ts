@@ -15,7 +15,7 @@ import { ListadoPresenterComponent } from './listado-presenter/listado-presenter
     ListadoPresenterComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule
   ],
   providers: [],
